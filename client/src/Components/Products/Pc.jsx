@@ -10,15 +10,9 @@ import {
   Flex,
   useToast,
   Heading,
-  background,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 import Filter from "./Filter";
-import { productAction } from "../../Redux/ProductData/productAction";
-import { addToCart } from "../../Redux/ProductData/productAction";
 import { Link } from "react-router-dom";
 
 function Pc() {

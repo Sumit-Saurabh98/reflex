@@ -12,24 +12,27 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Filter from "./Filter";
+import { addToCart } from "../../Redux/ProductData/productAction";
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 function Pc() {
-  const [sort, setSort] = useState(null);
-  const [filter, setFilter] = useState(null);
   const toast = useToast();
+  const [products, setProducts] = useState([]);
 
-  const data = useSelector((state) => {
-    return state.productReducer.data;
-  });
-  const cart = useSelector((state) => {
-    return state.cartReducer.cart;
-  });
   const dispatch = useDispatch();
+
+  const getProducts = async() =>{
+    const {data} = await axios.get("http://localhost:8080/api/products")
+    setProducts(data.data)
+  }
   useEffect(() => {
-    dispatch(productAction(sort, filter));
-  }, [sort, filter]);
+    getProducts();
+  }, []);
+
+  console.log(products)
 
   return (
     <Box bg="#222">
@@ -78,11 +81,11 @@ function Pc() {
 
       <Flex justifyContent="center" mt="20px">
         <Box w="20%" h="500px" color="white" mr="10px">
-          <Filter setSort={setSort} setFilter={setFilter} />
+          <Filter />
         </Box>
         <Grid w="70%" gridTemplateColumns="repeat(3,1fr)" gap="20px" ml="5%">
-          {data?.length > 0 &&
-            data?.map((e, index) => {
+          {products?.length > 0 &&
+            products?.map((e, index) => {
               return (
                 <GridItem
                   key={index}
@@ -105,7 +108,7 @@ function Pc() {
                       <ListItem>{e.specifications.force}</ListItem>
                     </UnorderedList>
 
-                    <Link to={`/productDetails/${e.id}`}>View Details</Link>
+                    <Link to={`/productDetails/${e._id}`}>View Details</Link>
                     <br></br>
                     <Text>US$&nbsp;{e.price} </Text>
                     <Text textDecor="line-through" color="#999999">

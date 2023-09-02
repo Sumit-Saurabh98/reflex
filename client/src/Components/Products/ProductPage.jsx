@@ -1,18 +1,10 @@
 import {
   Box,
-  Center,
-  Text,
-  VStack,
   Grid,
   Image,
   GridItem,
-  Flex,
 } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
 import { ProductPageCard, ProductPageTextBox } from "./ProductPageTextBox";
-import { ProductPageSmallGrayText } from "./ProductPageTextDecoration";
-import { ProductPageButton } from "./ProductPageTextDecoration";
 function ProductPage() {
   return (
     <Box bg="#222" fontSize={20}>

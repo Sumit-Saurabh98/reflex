@@ -15,13 +15,12 @@ import { useParams } from "react-router";
 function Details() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState("");
-  const SERVER_URL = process.env.REACT_APP_URL;
 
   const { id } = useParams();
   useEffect(() => {
     const getData = () => {
-      axios.get(`${SERVER_URL}data/${id}`).then((res) => {
-        setData(res.data);
+      axios.get(`http://localhost:8080/api/products/${id}`).then((res) => {
+        setData(res.data.data);
       });
     };
     getData();
@@ -30,7 +29,7 @@ function Details() {
   if (data != "") {
     return (
       <Box bg="#252525">
-        <Box px="70px" pt="40px" align="left">
+        <Box px="70px" pt="40px" mt="40px" align="left">
           <Text
             color="white"
             fontSize="21px"

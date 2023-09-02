@@ -10,7 +10,7 @@ function ProductsDetails() {
         <Box bg="black" >
          <Nav/>
         
-          <Main />
+          <Main  />
          <Details/>
         
         </Box>

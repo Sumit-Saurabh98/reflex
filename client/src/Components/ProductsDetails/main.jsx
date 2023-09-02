@@ -10,21 +10,21 @@ function Main({ldata}) {
          <Flex>
                
     
-           <Box w="70%" mt="-56px">
-            <ImageComp ldata={ldata}/>
+           <Box w="70%">
+            <ImageComp />
             </Box>
            
-           <CardComp w="30%" ldata={ldata}/> 
+           <CardComp  /> 
          </Flex>
     );
     }else{
         return(
             <Grid>
-              <Box w="100%" mt="-56px">
-            <ImageComp ldata={ldata}/>
+              <Box w="100%">
+            <ImageComp/>
             </Box>
            
-           <CardComp w="100%" ldata={ldata}/>  
+           <CardComp />  
             </Grid>
         )
     }

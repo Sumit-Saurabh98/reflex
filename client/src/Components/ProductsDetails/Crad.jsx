@@ -1,13 +1,9 @@
 import React from "react";
-import { Divider, Icon, List } from "@chakra-ui/react";
-import { CiDeliveryTruck } from "react-icons/ci";
+import { Divider, List } from "@chakra-ui/react";
 import {
   Flex,
   Box,
-  Center,
-  Spacer,
   Text,
-  Heading,
   UnorderedList,
   ListItem,
   Image,
@@ -16,12 +12,11 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
@@ -35,16 +30,17 @@ function CardComp() {
     setIsModalOpen(true);
   };
   const dispatch = useDispatch();
-  const SERVER_URL = process.env.REACT_APP_URL;
 
   useEffect(() => {
     const getData = () => {
-      axios.get(`${SERVER_URL}data/${id}`).then((res) => {
-        setData(res.data);
+      axios.get(`http://localhost:8080/api/products/${id}`).then((res) => {
+        setData(res.data.data);
       });
     };
     getData();
   }, []);
+
+  console.log(data);
   const handleCard = () => {
     dispatch(addToCart(data));
   };

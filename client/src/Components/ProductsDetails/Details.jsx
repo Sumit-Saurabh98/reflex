@@ -60,9 +60,9 @@ function Details() {
 
               <UnorderedList color="#888" align="left" pl="230px">
                 <ListItem color="#888">
-                  {data.specifications.processor}
+                  {data.processor}
                 </ListItem>
-                <ListItem color="#888">{data.specifications.windows}</ListItem>
+                <ListItem color="#888">{data.windows}</ListItem>
               </UnorderedList>
             </Flex>
             <Divider borderWidth="1px" />
@@ -103,7 +103,7 @@ function Details() {
                 </Text>
 
                 <Text color="#888" pl="270px">
-                  {data.specifications.force}
+                  {data.force}
                 </Text>
               </Flex>
               <Divider borderWidth="0.7px" />
@@ -116,7 +116,7 @@ function Details() {
                 </Text>
 
                 <Text color="#888" pl="150px">
-                  {data.specifications.storage}
+                  {data.storage}
                 </Text>
               </Flex>
               <Divider borderWidth="0.7px" />

@@ -9,7 +9,25 @@ import {
   Checkbox,
 } from "@chakra-ui/react";
 
-function Filter({ setSort, setFilter }) {
+import { useContext } from "react";
+import { filterContext } from "../../context/FilterContext";
+
+function Filter() {
+
+  const {screenChange, colorChange, sortChange}  = useContext(filterContext);
+
+  const handleScreenSize = (screen) =>{
+    screenChange(screen);
+  }
+
+  const handleSorting = (sort) =>{
+    sortChange(sort);
+  }
+
+  const handleColor = (color) =>{
+    colorChange(color);
+  }
+
   return (
     <div>
       <Accordion allowToggle>
@@ -27,9 +45,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="13"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                 onChange={(e)=>handleScreenSize(e.target.value)}
                 >
                   13 inch
                 </Checkbox>
@@ -38,9 +54,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="14"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                   onChange={(e)=>handleScreenSize(e.target.value)}
                 >
                   14 inch
                 </Checkbox>
@@ -49,9 +63,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="15"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                   onChange={(e)=>handleScreenSize(e.target.value)}
                 >
                   15 inch
                 </Checkbox>
@@ -60,9 +72,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="16"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                   onChange={(e)=>handleScreenSize(e.target.value)}
                 >
                   16 inch
                 </Checkbox>
@@ -71,9 +81,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="17"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                   onChange={(e)=>handleScreenSize(e.target.value)}
                 >
                   17 inch
                 </Checkbox>
@@ -96,9 +104,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="asc"
-                  onChange={(e) => {
-                    setSort(e.target.value);
-                  }}
+                   onChange={(e)=>handleSorting(e.target.value)}
                 >
                   LOW YO HIGH
                 </Checkbox>
@@ -107,9 +113,7 @@ function Filter({ setSort, setFilter }) {
                 <Checkbox
                   defaultunChecked
                   value="desc"
-                  onChange={(e) => {
-                    setSort(e.target.value);
-                  }}
+                  onChange={(e)=>handleSorting(e.target.value)}
                 >
                   HIGH TO LOW
                 </Checkbox>
@@ -131,10 +135,8 @@ function Filter({ setSort, setFilter }) {
               <Box>
                 <Checkbox
                   defaultunChecked
-                  value="black"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                  value="Black"
+                  onChange={(e)=>handleColor(e.target.value)}
                 >
                   BLACK
                 </Checkbox>
@@ -142,10 +144,8 @@ function Filter({ setSort, setFilter }) {
               <Box>
                 <Checkbox
                   defaultunChecked
-                  value="green"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                  value="Green"
+                  onChange={(e)=>handleColor(e.target.value)}
                 >
                   GREEN
                 </Checkbox>
@@ -153,10 +153,8 @@ function Filter({ setSort, setFilter }) {
               <Box>
                 <Checkbox
                   defaultunChecked
-                  value="whitesmoke"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                  value="Whitesmoke"
+                  onChange={(e)=>handleColor(e.target.value)}
                 >
                   WHITESMOKE
                 </Checkbox>
@@ -164,12 +162,19 @@ function Filter({ setSort, setFilter }) {
               <Box>
                 <Checkbox
                   defaultunChecked
-                  value="gray"
-                  onChange={(e) => {
-                    setFilter(e.target.value);
-                  }}
+                  value="Gray"
+                  onChange={(e)=>handleColor(e.target.value)}
                 >
                   GRAY
+                </Checkbox>
+              </Box>
+              <Box>
+                <Checkbox
+                  defaultunChecked
+                  value="Blue"
+                  onChange={(e)=>handleColor(e.target.value)}
+                >
+                  BLUE
                 </Checkbox>
               </Box>
             </Box>

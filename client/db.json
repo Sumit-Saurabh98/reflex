@@ -10,13 +10,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - Full HD 144Hz - GeForce RTX 3060 - Mercury",
-      "specifications": {
-        "processor": "AMD Ryzen™ 9 6900HX",
-        "windows": "Windows 11 Home",
-        "screen": 14,
-        "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+      "processor": "AMD Ryzen™ 9 6900HX",
+      "windows": "Windows 11 Home",
+      "screen": 14,
+      "force": "GeForce RTX 3060",
+      "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 54999,
       "cprice": 59999,
       "color": "Green",
@@ -32,13 +30,11 @@
         "img5": "https://assets3.razerzone.com/vy3EuAsw67aJ675RMs74OS90cHs=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh22%2Fhdd%2F9286404800542%2F210104-blade-15-ch8-fhd-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 14,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 55999,
       "cprice": 59999,
       "color": "Black",
@@ -54,13 +50,11 @@
         "img5": "https://assets3.razerzone.com/HBRzj8Ygs6lXukJoLQUZJc9atzI=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhf4%2Fh94%2F9135864807454%2Frazer-blade-15-advanced-gallery-20210112-06.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Quartz",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 51999,
       "cprice": 57999,
       "color": "Black",
@@ -76,13 +70,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 52999,
       "cprice": 57999,
       "color": "Black",
@@ -98,13 +90,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 52999,
       "cprice": 57999,
       "color": "Green",
@@ -120,13 +110,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 16 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 16,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 57999,
       "cprice": 64999,
       "color": "Black Murcury",
@@ -142,13 +130,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 16 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 16,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 57999,
       "cprice": 64999,
       "color": "Black Murcury",
@@ -164,13 +150,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 16 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 16,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 58999,
       "cprice": 64999,
       "color": "Black Murcury",
@@ -186,13 +170,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 59999,
       "cprice": 65999,
       "color": "Black Murcury",
@@ -208,13 +190,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 54999,
       "cprice": 56999,
       "color": "Black Murcury",
@@ -230,13 +210,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 13 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 13,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 55999,
       "cprice": 58999,
       "color": "Green",
@@ -252,13 +230,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 13 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 13,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 54999,
       "cprice": 58999,
       "color": "Green",
@@ -274,13 +250,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 13 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 13,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 54999,
       "cprice": 58999,
       "color": "Blue",
@@ -296,13 +270,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 17 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 17,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 57999,
       "cprice": 60999,
       "color": "Blue",
@@ -318,13 +290,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 17 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 17,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 56999,
       "cprice": 60999,
       "color": "Blue",
@@ -340,13 +310,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 17 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 17,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 56999,
       "cprice": 60999,
       "quantity": 1
@@ -361,13 +329,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 16 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 16,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 55999,
       "cprice": 59999,
       "color": "Blue",
@@ -383,13 +349,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 52999,
       "cprice": 58999,
       "color": "Blue",
@@ -405,13 +369,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 13 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 13,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 58999,
       "cprice": 69999,
       "color": "WhiteSmoke",
@@ -427,13 +389,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 14,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 53999,
       "cprice": 59999,
       "color": "WhiteSmoke",
@@ -449,13 +409,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 14,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 50999,
       "cprice": 55999,
       "color": "WhiteSmoke",
@@ -471,13 +429,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 14,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 51999,
       "cprice": 56999,
       "color": "WhiteSmoke",
@@ -493,13 +449,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 14,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 55999,
       "cprice": 59999,
       "color": "Gray",
@@ -514,13 +468,11 @@
         "img4": "https://assets3.razerzone.com/S8pG_WTNYcKMTj5UDaWvy-TCIWk=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh11%2Fh42%2F9481464414238%2F230222-blade15-ch9-1500x1000-4.jpg",
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 17,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 57999,
       "cprice": 65999,
       "color": "Gray",
@@ -536,13 +488,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 50999,
       "cprice": 55999,
       "color": "Gray",
@@ -558,13 +508,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 14 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 14,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 55999,
       "cprice": 59999,
       "color": "Gray",
@@ -580,13 +528,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 16 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 16,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 55999,
       "cprice": 60999,
       "color": "Gray",
@@ -602,13 +548,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 16 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 16,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 54999,
       "cprice": 59999,
       "color": "Gray",
@@ -624,13 +568,11 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 13 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 13,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 56999,
       "cprice": 59999,
       "color": "Black Murcury",
@@ -646,19 +588,15 @@
         "img5": "https://assets3.razerzone.com/_KY2w8pfZYKbx3I3zNzYFVUuR_Y=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh02%2Fh3c%2F9481464283166%2F230222-blade15-ch9-1500x1000-6.jpg"
       },
       "title": "Razer Blade 15 - QHD 165Hz - GeForce RTX 3070 Ti - Mercury",
-      "specifications": {
         "processor": "AMD Ryzen™ 9 6900HX",
         "windows": "Windows 11 Home",
         "screen": 15,
         "force": "GeForce RTX 3060",
-        "storage": "16GB 4800MHz RAM, 1TB SSD"
-      },
+        "storage": "16GB 4800MHz RAM, 1TB SSD",
       "price": 52999,
       "cprice": 59999,
       "color": "Black Murcury",
       "quantity": 1
     }
-  ],
-  "cart": [],
-  "users": []
+  ]
 }

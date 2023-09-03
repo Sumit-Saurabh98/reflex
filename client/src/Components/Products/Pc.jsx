@@ -11,29 +11,30 @@ import {
   useToast,
   Heading,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Filter from "./Filter";
 import { addToCart } from "../../Redux/ProductData/productAction";
 import { Link } from "react-router-dom";
 import axios from "axios"
+import { filterContext } from "../../context/FilterContext";
 
 function Pc() {
+  const {screen, sort, color}  = useContext(filterContext);
   const toast = useToast();
   const [products, setProducts] = useState([]);
 
   const dispatch = useDispatch();
 
   const getProducts = async() =>{
-    const {data} = await axios.get("http://localhost:8080/api/products")
+    const {data} = await axios.get(`http://localhost:8080/api/products?sort=${sort}&screen=${screen}&color=${color}`);
     setProducts(data.data)
   }
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [screen, sort, color]);
 
-  console.log(products)
-
+console.log(screen, sort, color)
   return (
     <Box bg="#222">
       <Box bg="black" textAlign="center" p={10}>
@@ -99,13 +100,13 @@ function Pc() {
                       {e.title}
                     </Text>
                     <UnorderedList color="#999999" mt="20px" mb="20px">
-                      <ListItem>{e.specifications.processor}</ListItem>
+                      <ListItem>{e.processor}</ListItem>
                       <ListItem>
-                        {e.specifications.screen}&nbsp;inch Full HD
+                        {e.screen}&nbsp;inch Full HD
                       </ListItem>
-                      <ListItem>{e.specifications.force}</ListItem>
-                      <ListItem>{e.specifications.windows}</ListItem>
-                      <ListItem>{e.specifications.force}</ListItem>
+                      <ListItem>{e.force}</ListItem>
+                      <ListItem>{e.windows}</ListItem>
+                      <ListItem>{e.force}</ListItem>
                     </UnorderedList>
 
                     <Link to={`/productDetails/${e._id}`}>View Details</Link>

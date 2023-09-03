@@ -8,9 +8,11 @@ import { store } from "./Redux/store";
 import "@fontsource/titillium-web/400.css";
 import Theme from "./Components/Theme/Theme";
 import { Provider } from "react-redux";
+import FilterContext from "./context/FilterContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <FilterContext>
   <Provider store={store}>
     <BrowserRouter>
       <ChakraProvider theme={Theme}>
@@ -18,6 +20,7 @@ root.render(
       </ChakraProvider>
     </BrowserRouter>
   </Provider>
+  </FilterContext>
 );
 
 // If you want to start measuring performance in your app, pass a function

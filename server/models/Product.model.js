@@ -9,13 +9,11 @@ const productSchema = mongoose.Schema({
     img5: String,
   },
   title: String,
-  specifications: {
     processor: String,
     windows: String,
     screen: Number,
     force: String,
     storage: String,
-  },
      price: Number,
     cprice: Number,
     color: String,

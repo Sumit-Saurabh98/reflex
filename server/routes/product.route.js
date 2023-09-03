@@ -3,32 +3,56 @@ const { ProductModel } = require("../models/Product.model");
 
 const router = express.Router();
 
-// Define a route that accepts an optional 'id' as a query parameter
+// Define a route that accepts query parameters for filtering and sorting
 router.get("/products/:id?", async (req, res) => {
     try {
-        // Retrieve the 'id' from the request parameters (if provided)
-        const productId = req.params.id;
+        const { id } = req.params; // Retrieve the ID parameter from the URL
+        const { screen, sort, color } = req.query; // Retrieve query parameters
 
-        if (productId) {
-            // If 'id' is provided, find and return the specific product
-            const product = await ProductModel.findById(productId);
-
+        if (id) {
+            // If an ID is provided in the URL, retrieve a single product by ID
+            const product = await ProductModel.findById(id);
             if (!product) {
-                // If the product with the given 'id' is not found, return a 404 response
                 return res.status(404).json({ error: "Product not found" });
             }
-
-            // Return the specific product as a JSON response
             return res.status(200).json({ data: product, success: true });
-        } else {
-            // If 'id' is not provided, return all products
-            const products = await ProductModel.find();
-
-            // Return all products as a JSON response
-            return res.status(200).json({ data: products, success: true });
         }
+
+        // If no ID is provided, proceed with filtering and sorting
+
+        // Create a filter object based on the query parameters
+        const filterObj = {};
+
+        // Add filter conditions based on your requirements
+        if (screen === "13" || screen === "14" || screen === "15" || screen === "16" || screen === "17") {
+            filterObj.screen = screen;
+        }
+        // Add other filter conditions for price, screen type, and refresh rate as needed.
+
+        // Add color filtering condition
+        if (color) {
+            filterObj.color = color;
+        }
+
+        // Create a sort object based on the query parameters
+        const sortObj = {};
+
+        // Add sorting criteria based on your requirements
+        if (sort === "asc") {
+            sortObj.price = 1; // Sort in ascending order by price
+        } else if (sort === "desc") {
+            sortObj.price = -1; // Sort in descending order by price
+        }
+        // Add other sorting criteria as needed.
+
+        // Perform the database query with filtering and sorting
+        const products = await ProductModel.find(filterObj)
+            .sort(sortObj);
+
+        // Return the filtered and sorted products as a JSON response
+        res.status(200).json({ data: products, success: true });
     } catch (error) {
-        console.error("Error fetching product/products:", error);
+        console.error("Error fetching products:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });

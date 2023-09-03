@@ -1,10 +1,5 @@
-import { VStack, Grid } from "@chakra-ui/react";
+
 import {
-  GridItem,
-  Box,
-  Image,
-  Heading,
-  Center,
   Text,
   Button,
 } from "@chakra-ui/react";

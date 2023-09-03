@@ -1,12 +1,9 @@
 import {
   Box,
-  Center,
   Text,
   VStack,
-  Grid,
   Image,
   GridItem,
-  Flex,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ProductPageSmallGrayText } from "./ProductPageTextDecoration";
@@ -51,6 +48,4 @@ export function ProductPageCard({ img, h1, t }) {
     </GridItem>
   );
 }
-{/* <ProductPageCard img={""} 
-h1={"DESKTOPS"} t={"Enthusia"} />;
-<ProductPageTextBox h={"LAPTO"} t={""} />; */}
+

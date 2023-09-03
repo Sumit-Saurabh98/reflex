@@ -64,9 +64,9 @@ function CardComp() {
             US${data.price}
           </Text>
           <UnorderedList color="#888" align="left">
-            <ListItem color="#888">{data.specifications.processor}</ListItem>
-            <ListItem color="#888">{data.specifications.windows}</ListItem>
-            <ListItem color="#888">{data.specifications.screen}inch</ListItem>
+            <ListItem color="#888">{data.processor}</ListItem>
+            <ListItem color="#888">{data.windows}</ListItem>
+            <ListItem color="#888">{data.screen}inch</ListItem>
           </UnorderedList>
 
           <Box align="left" pt="20px">

@@ -12,9 +12,7 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import Filter from "./Filter";
-import { addToCart } from "../../Redux/ProductData/productAction";
 import { Link } from "react-router-dom";
 import axios from "axios"
 import { filterContext } from "../../context/FilterContext";
@@ -24,8 +22,6 @@ function Pc() {
   const toast = useToast();
   const [products, setProducts] = useState([]);
 
-  const dispatch = useDispatch();
-
   const getProducts = async() =>{
     const {data} = await axios.get(`http://localhost:8080/api/products?sort=${sort}&screen=${screen}&color=${color}`);
     setProducts(data.data)
@@ -33,6 +29,67 @@ function Pc() {
   useEffect(() => {
     getProducts();
   }, [screen, sort, color]);
+
+  const token = localStorage.getItem("token");
+
+ axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const handleAddToCart = async (product) => {
+  try {
+    console.log(product.cprice)
+    const response = await axios.post("http://localhost:8080/cart/add", {
+      userId: "64eed975cd7af98543a4950b",
+      img: {
+        img1:product.img.img1,
+        img2:product.img.img2,
+        img3:product.img.img3,
+        img4:product.img.img4,
+        img5:product.img.img5,
+      },
+      title: product.title,
+      processor: product.processor,
+      windows: product.windows,
+      screen: product.screen,
+      force: product.force,
+      storage: product.storage,
+      price: product.price,
+      cprice: product.cprice,
+      color: product.color,
+      quantity: 1, 
+    });
+
+    if (response.status === 201) {
+      // Product successfully added to the cart
+      toast({
+        title: "ADDED",
+        description: "Product Added To Cart",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    } else {
+      // Handle any error conditions here
+      toast({
+        title: "Error",
+        description: "Failed to add product to cart",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  } catch (error) {
+    console.error("Error adding product to cart:", error);
+    // Handle the error and display an error toast message
+    toast({
+      title: "Error",
+      description: "Failed to add product to cart",
+      status: "error",
+      duration: 9000,
+      isClosable: true,
+    });
+  }
+};
+
 
 console.log(screen, sort, color)
   return (
@@ -119,16 +176,7 @@ console.log(screen, sort, color)
                       bg="#44d62c"
                       mt="20px"
                       w="45%"
-                      onClick={() => {
-                        dispatch(addToCart(e));
-                        toast({
-                          title: "ADDED",
-                          description: "Product Added To Cart",
-                          status: "success",
-                          duration: 9000,
-                          isClosable: true,
-                        });
-                      }}
+                      onClick={() => handleAddToCart(e)}
                     >
                       Add To Cart
                     </Button>

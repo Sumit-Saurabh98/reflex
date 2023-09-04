@@ -1,5 +1,5 @@
 const express = require('express');
-const { ProductModel } = require("../models/Product.model");
+const { Product } = require("../models/Product.model");
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get("/products/:id?", async (req, res) => {
 
         if (id) {
             // If an ID is provided in the URL, retrieve a single product by ID
-            const product = await ProductModel.findById(id);
+            const product = await Product.findById(id);
             if (!product) {
                 return res.status(404).json({ error: "Product not found" });
             }
@@ -46,7 +46,7 @@ router.get("/products/:id?", async (req, res) => {
         // Add other sorting criteria as needed.
 
         // Perform the database query with filtering and sorting
-        const products = await ProductModel.find(filterObj)
+        const products = await Product.find(filterObj)
             .sort(sortObj);
 
         // Return the filtered and sorted products as a JSON response

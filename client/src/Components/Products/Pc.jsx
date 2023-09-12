@@ -16,6 +16,7 @@ import Filter from "./Filter";
 import { Link } from "react-router-dom";
 import axios from "axios"
 import { filterContext } from "../../context/FilterContext";
+import jwt_decode from "jwt-decode";
 
 function Pc() {
   const {screen, sort, color}  = useContext(filterContext);
@@ -32,13 +33,16 @@ function Pc() {
 
   const token = localStorage.getItem("token");
 
+  const decodedToken = jwt_decode(token);
+
+
  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   const handleAddToCart = async (product) => {
   try {
     console.log(product.cprice)
     const response = await axios.post("http://localhost:8080/cart/add", {
-      userId: "64eed975cd7af98543a4950b",
+      userId: decodedToken.userID,
       img: {
         img1:product.img.img1,
         img2:product.img.img2,

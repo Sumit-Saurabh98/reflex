@@ -3,9 +3,6 @@ import {
   Text,
   Flex,
   Image,
-  ListItem,
-  UnorderedList,
-  IconButton,
   Divider,
   Input,
   Accordion,
@@ -15,7 +12,6 @@ import {
   AccordionIcon,
   useToast,
 } from "@chakra-ui/react";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { CartGreenButton } from "./CartGreenButton";
 import {
   CartBigWhiteText,

@@ -1,9 +1,11 @@
 const express = require("express");
 const { connection } = require("./config/db");
 require("dotenv").config();
-const userRoutes = require("./routes/user.route")
+const userRouter = require("./routes/user.route")
 const productsRouter = require("./routes/product.route")
 const cors = require("cors")
+const cartRouter = require('./routes/cart.route');
+const { authenticate } = require("./middlewares/authenticate");
 
 const PORT = process.env.PORT || 5000;
 
@@ -13,8 +15,9 @@ app.use(cors())
 
 app.use(express.json());
 
-app.use("/user", userRoutes);
+app.use("/user", userRouter);
 app.use("/api", productsRouter)
+app.use("/cart", authenticate , cartRouter)
 
 app.listen(PORT, async () => {
     try {

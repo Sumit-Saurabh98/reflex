@@ -38,7 +38,7 @@ function Signin(props) {
       .post("http://localhost:8080/user/login", { email, password })
       .then((response) => {
         const user = response.data; 
-        console.log(user);
+        localStorage.setItem("token", user.token);
         if (user) {
           toast({
           title: 'Login Successful',

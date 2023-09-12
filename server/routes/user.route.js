@@ -1,5 +1,5 @@
 const express = require('express');
-const { Usermodel } = require("../models/User.model"); 
+const { User } = require("../models/User.model"); 
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 
@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/signup", async (req, res) => {
     const { name, country, date, email, password } = req.body;
     const hashed_password = bcrypt.hashSync(password, 8);
-    const new_user = new Usermodel({
+    const new_user = new User({
         name,
         country,
         date,
@@ -21,7 +21,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
     const { email, password } = req.body;
-    const user = await Usermodel.findOne({ email });
+    const user = await User.findOne({ email });
     
     if (!user) {
         res.send({msg:"User not found. Please sign up."});

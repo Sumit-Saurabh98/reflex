@@ -40,7 +40,6 @@ function CardComp() {
     getData();
   }, []);
 
-  console.log(data);
   const handleCard = () => {
     dispatch(addToCart(data));
   };

@@ -27,7 +27,6 @@ import { authContext } from "../../context/AuthContextprovider";
 export function OnclickCart() {
   const navigate = useNavigate();
   const { auth, logOut } = useContext(authContext);
-  console.log(auth)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 

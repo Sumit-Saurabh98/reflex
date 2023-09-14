@@ -8,7 +8,7 @@ router.post("/add", async (req, res) => {
         const { userId, img, title, processor, windows, screen, force, storage, price, cprice, color, quantity } = req.body;
 
         // Create a new cart item and associate it with the user
-        console.log(userId, title)
+        
         const cartItem = new Cart({
             user: userId,
             img: {

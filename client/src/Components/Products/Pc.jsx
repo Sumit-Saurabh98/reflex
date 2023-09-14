@@ -49,7 +49,6 @@ function Pc() {
 
   const handleAddToCart = async (product) => {
   try {
-    console.log(product.cprice)
     const response = await axios.post("http://localhost:8080/cart/add", {
       userId: decodedToken.userID,
       img: {
@@ -104,7 +103,6 @@ function Pc() {
 };
 
 
-console.log(screen, sort, color)
   return (
     <Box bg="#222">
       <Box bg="black" textAlign="center" p={10}>

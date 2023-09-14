@@ -33,7 +33,6 @@ function AuthContextProvider({ children }) {
         setAuth(true)
     }
 
-    console.log(auth, "from authfile")
 
     
 

@@ -22,10 +22,10 @@ app.use("/cart", authenticate , cartRouter)
 app.listen(PORT, async () => {
     try {
         await connection();
-        console.log("Connected to DB successfully");
+        // console.log("Connected to DB successfully");
     } catch (err) {
-        console.log("Error while connecting to DB");
+        // console.log("Error while connecting to DB");
         console.error(err);
     }
-    console.log(`Listening on port ${PORT}`);
+    // console.log(`Listening on port ${PORT}`);
 });

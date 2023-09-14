@@ -37,7 +37,7 @@ export const productAction = (sort, filter) => {
         dispatch({ type: "data", payload: res.data });
       })
       .catch((err) => {
-        console.log(err);
+        
       });
   };
 };

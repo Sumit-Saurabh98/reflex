@@ -25,7 +25,7 @@ function Pc() {
   const [token, setToken] = useState("")
 
   const getProducts = async() =>{
-    const {data} = await axios.get(`http://localhost:8080/api/products?sort=${sort}&screen=${screen}&color=${color}`);
+    const {data} = await axios.get(`/api/products?sort=${sort}&screen=${screen}&color=${color}`);
     setProducts(data.data)
   }
   useEffect(() => {
@@ -49,7 +49,7 @@ function Pc() {
 
   const handleAddToCart = async (product) => {
   try {
-    const response = await axios.post("http://localhost:8080/cart/add", {
+    const response = await axios.post("/cart/add", {
       userId: decodedToken.userID,
       img: {
         img1:product.img.img1,

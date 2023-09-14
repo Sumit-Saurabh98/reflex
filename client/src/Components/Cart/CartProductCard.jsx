@@ -36,7 +36,7 @@ const handleQuantity = async (newQuantity) => {
 
     // Make a PUT request to update the quantity for this item
     const response = await axios.put(
-      `http://localhost:8080/cart/update/${item._id}`,
+      `/cart/update/${item._id}`,
       { quantity: newQuantity }, // Move the quantity to the data object
       {
         headers: {
@@ -53,7 +53,7 @@ const handleQuantity = async (newQuantity) => {
   const handleDelete = async () => {
     try {
       // Make a DELETE request to remove this item from the cart
-      const response = await axios.delete(`http://localhost:8080/cart/remove/${item._id}`, {
+      const response = await axios.delete(`/cart/remove/${item._id}`, {
       headers:{
         "Authorization": "Bearer " + token
       }

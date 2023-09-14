@@ -33,7 +33,7 @@ function CardComp() {
 
   useEffect(() => {
     const getData = () => {
-      axios.get(`http://localhost:8080/api/products/${id}`).then((res) => {
+      axios.get(`/api/products/${id}`).then((res) => {
         setData(res.data.data);
       });
     };

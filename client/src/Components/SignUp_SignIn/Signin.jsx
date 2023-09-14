@@ -39,7 +39,7 @@ function Signin(props) {
     e.preventDefault();
     if (validation()) {
       axios
-      .post("http://localhost:8080/user/login", { email, password })
+      .post("/user/login", { email, password })
       .then((response) => {
         const user = response.data; 
         localStorage.setItem("token", user.token);

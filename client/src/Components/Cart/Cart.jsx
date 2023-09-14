@@ -24,45 +24,89 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartProductCard from "./CartProductCard"
+import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode"
 import axios from "axios";
+import { useContext } from "react";
+import { authContext } from "../../context/AuthContextprovider";
 
 export function Cart() {
-    const promo = useRef(""); // Initialize promo code as an empty string
+  const {changePrice, changeTotalItem} = useContext(authContext)
+  const navigate = useNavigate()
+  const promoCodeRef = useRef(""); // Initialize promo code as an empty string
   const [userId, setUserId] = useState("");
   const [token, setToken] = useState("");
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0); // State to store the total cart value
+  const [aim, setAim] = useState(true)
+  
   const toast = useToast();
+
+  // Calculate cart total
+  const calculateCartTotal = () => {
+    let total = cartItems.length >0 &&  cartItems.reduce((acc, item) =>{
+      return acc + item.cprice * item.quantity
+    },0)
+    return total;
+  };
 
   const getCartData = async (user) => {
     try {
       const { data } = await axios.get(`http://localhost:8080/cart/get/${user}`, {
         headers: {
-          "Authorization": "Bearer " + token
-        }
+          Authorization: "Bearer " + token,
+        },
       });
-      setCartItems(data)
-      console.log(data, "ham yaga se hain")
+      setCartItems(data);
+      const currentTotal = calculateCartTotal();
+      setCartTotal(currentTotal);
+      changePrice(cartTotal)
+      changeTotalItem(data.length)
     } catch (error) {
-      // Handle the error, e.g., show an error message to the user
       console.error("Error fetching cart data:", error);
-      return null; // Return a default value or handle the error as needed
     }
-  }
+  };
 
-useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem("token");
-    setToken(token);
-    const uId = jwt_decode(token);
+    if(token) {
+      setToken(token);
+      const uId = jwt_decode(token);
     setUserId(uId.userID);
     getCartData(uId.userID);
-  }, [userId, token]);
-
-
-  const applyPromocode = ()=>{
+    }else{
+      setAim(false);
+    }
     
+  }, [userId, token, cartItems]);
+  
+
+  // Apply promo code
+const applyPromocode = () => {
+  const enteredPromoCode = promoCodeRef.current;
+  if (enteredPromoCode === "WELCOME30") {
+    const currentTotal = calculateCartTotal();
+    const discount = (currentTotal * 30) / 100;
+    const newTotal = currentTotal - discount;
+    setCartTotal(newTotal);
+    toast({
+      title: "Promo code applied",
+      description: `You saved $${discount.toFixed(2)} with promo code.`,
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+  } else {
+    toast({
+      title: "Invalid promo code",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
   }
+};
+
+
 
   return (
     <Box bg="black" color="white" pt="100px">
@@ -73,16 +117,29 @@ useEffect(() => {
             <CartGreenButton
               t={"Checkout"}
               w={"120px"}
-              // onClick={saveTotalAmount}
             />
           </Link>
         </Flex>
       </Box>
       <Box w="80%" margin="auto">
-        {cartItems.length > 0 &&
-          cartItems.map((item) => {
-            return <CartProductCard item={item} />;
-          })}
+     {
+  aim ? (
+    cartItems.length > 0 &&
+    cartItems.map((item) => {
+      return <CartProductCard item={item} />;
+    })
+  ) : (
+    <Flex flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+      <Box fontSize={"4vw"}>Please Sign up /Sign in</Box>
+      <CartGreenButton
+                    t={"Click here"}
+                    w={"100px"}
+                    onClick={()=>navigate('/signup')}
+                  />
+    </Flex>
+  )
+}
+
         <Divider />
         <Box p="30px 0px">
           <Flex align="center">
@@ -101,7 +158,7 @@ useEffect(() => {
             </Box>
             <Box>
               <CartWhiteSmallText
-                // t={`${Math.ceil(cartTotal.current / 20)} with this purchase.`}
+                t={`${Math.ceil(cartTotal.current / 20)} with this purchase.`}
               />
             </Box>
           </Flex>
@@ -129,7 +186,7 @@ useEffect(() => {
                     size="md"
                     w="300px"
                     onChange={(e) => {
-                      promo.current = e.target.value;
+                      promoCodeRef.current = e.target.value;
                     }}
                   />
                   <CartGreenButton
@@ -151,7 +208,7 @@ useEffect(() => {
                 <CartGrayText t={"Excludes local taxes"} />
               </Box>
               <Box>
-                {/* <CartBigWhiteText t={`US$${cartTotalState}`} /> */}
+                <CartBigWhiteText t={`US$${cartTotal}`} />
               </Box>
             </Flex>
             <Flex justify="space-between" p="20px 0px">
@@ -171,7 +228,7 @@ useEffect(() => {
                 <CartBigWhiteText t={"Your Total"} />
               </Box>
               <Box>
-                {/* <CartBigWhiteText t={`US$${cartTotalState}`} /> */}
+                <CartBigWhiteText t={`US$${cartTotal}`} />
               </Box>
             </Flex>
             <Flex justify="right">

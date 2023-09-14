@@ -22,7 +22,7 @@ export function AllRoutes() {
         <Route path="/laptops" element={<Pc />} />
         <Route path="/productDetails/:id" element={<ProductsDetails />} />
         <Route path="/payment" element={<Payments />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart/>} />
         <Route path="/successfulPayment" element={<SucessPage />} />
       </Routes>
       <Footer />

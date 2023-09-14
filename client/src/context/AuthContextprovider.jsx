@@ -6,6 +6,16 @@ export const authContext = createContext();
 
 function AuthContextProvider({ children }) {
     const [auth, setAuth] = useState(false);
+    const [price, setPrice] = useState(0);
+    const [item, setItem] = useState(1)
+
+    const changePrice = (p) => {
+        setPrice(p)
+    }
+
+    const changeTotalItem = (i) => {
+        setItem(i)
+    }
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -27,7 +37,7 @@ function AuthContextProvider({ children }) {
 
     
 
-    const value = { auth, logOut, toggleAuth };
+    const value = { auth, logOut, toggleAuth, price, changePrice, item, changeTotalItem };
     
     return (
         <authContext.Provider value={value}>

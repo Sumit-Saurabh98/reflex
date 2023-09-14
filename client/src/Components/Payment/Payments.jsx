@@ -1,5 +1,4 @@
-import React from "react";
-import { ArrowRightIcon } from '@chakra-ui/icons'
+import React, { useContext } from "react";
 import { Otp } from "./Otp";
 import {
   Accordion,
@@ -9,28 +8,28 @@ import {
   AccordionIcon,
   Box,
   Input,
-  Select,
+ 
   Radio,
   Flex,
   Text,
   Stack,
   RadioGroup,
-  Divider,
+
   Table,
-  Thead,
+
   Tbody,
-  Button,
+
   Tr,
-  Th,
+
   Td,
   TableCaption,
   TableContainer,
   Center
 } from "@chakra-ui/react";
+import { authContext } from "../../context/AuthContextprovider";
 
 function Payments(props) {
-  const total = localStorage.getItem("total");
-  const items = localStorage.getItem("iteems");
+  const {price, item} = useContext(authContext)
   return (
     <div
       style={{
@@ -93,13 +92,7 @@ function Payments(props) {
                   type="text"
                   placeholder="Country"
                 />
-                {/* <Select placeholder="Select Country">
-                  <option value="option1">US</option>
-                  <option value="option2">India</option>
-                  <option value="option3">China</option>
-                  <option value="option3">Rusia</option>
-                  <option value="option3">Japan</option>
-                </Select> */}
+              
               </AccordionPanel>
             </AccordionItem>
 
@@ -168,11 +161,11 @@ function Payments(props) {
                 </Tr>
                 <Tr>
                   <Td>Total Items</Td>
-                  <Td>{items}</Td>
+                  <Td>{item}</Td>
                 </Tr>
                 <Tr>
                   <Td>Subtotal(Excludes local tax)</Td>
-                  <Td>US${total}</Td>
+                  <Td>US${price}</Td>
                 </Tr>
                 <Tr>
                   <Td>Local Taxes</Td>
@@ -184,7 +177,7 @@ function Payments(props) {
                 </Tr>
                 <Tr>
                   <Td>Total</Td>
-                  <Td>US${+total + +5}</Td>
+                  <Td>US${+price + +5}</Td>
                 </Tr>
               </Tbody>
             </Table>

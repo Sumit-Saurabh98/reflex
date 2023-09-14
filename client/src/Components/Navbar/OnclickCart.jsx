@@ -79,17 +79,18 @@ export function OnclickCart() {
           </DrawerHeader>
 
           <DrawerBody>
-            <Link to="/cart">
               <Button
                 _hover={{ color: "rgb(69,214,43)" }}
                 color="white"
                 leftIcon={<FiShoppingCart boxSize={6} />}
                 variant="liqued"
-                onClick={onClose}
+                onClick={()=>{
+                  navigate("/cart")
+                  onClose()
+                }}
               >
                 Cart
               </Button>
-            </Link>
             <Divider color="#888" orientation="horizontal" />
             <Button
               _hover={{ color: "rgb(69,214,43)" }}

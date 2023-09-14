@@ -6,42 +6,17 @@ import {
   ListItem,
   UnorderedList,
   IconButton,
-  Divider,
-  Input,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useToast,
-  Button,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { CartGreenButton } from "./CartGreenButton";
 import { useDispatch } from "react-redux";
 import {
   CartBigWhiteText,
-  CartWhiteHeading,
   CartGrayText,
-  CartGreenLinkText,
-  CartWhiteSmallText,
-  CartBlueLinkText,
 } from "./CartTextDecoration";
-import { useSelector } from "react-redux";
-export function CartProductCard({ item }) {
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => {
-    return state.cartReducer.cart;
-  });
+function CartProductCard({ item }) {
 
-  const handleQuantity = (payload) => {
-    const updatedCart = cartItems.map((product) => {
-      return product.id == item.id
-        ? { ...product, quantity: +product.quantity + payload }
-        : product;
-    });
-    dispatch({ type: "cart", payload: updatedCart });
-  };
+  console.log(item);
+
   return (
     <Flex justify="space-between" p="20px 0px">
       <Flex width="60%">
@@ -52,13 +27,13 @@ export function CartProductCard({ item }) {
           <CartBigWhiteText t={item.title} />
           <UnorderedList>
             <ListItem>
-              <CartGrayText t={item.specifications.force} />
+              <CartGrayText t={item.force} />
             </ListItem>
             <ListItem>
-              <CartGrayText t={item.specifications.processor} />
+              <CartGrayText t={item.processor} />
             </ListItem>
             <ListItem>
-              <CartGrayText t={item.specifications.storage} />
+              <CartGrayText t={item.storage} />
             </ListItem>
           </UnorderedList>
         </Box>
@@ -72,7 +47,7 @@ export function CartProductCard({ item }) {
               icon={<AddIcon />}
               size="xs"
               onClick={() => {
-                handleQuantity(1);
+                // handleQuantity(1);
               }}
               isDisabled={item.quantity >= 5}
             />
@@ -87,7 +62,7 @@ export function CartProductCard({ item }) {
               icon={<MinusIcon />}
               size="xs"
               onClick={() => {
-                handleQuantity(-1);
+                // handleQuantity(-1);
               }}
               isDisabled={item.quantity <= 1}
             />
@@ -100,3 +75,5 @@ export function CartProductCard({ item }) {
     </Flex>
   );
 }
+
+export default CartProductCard;

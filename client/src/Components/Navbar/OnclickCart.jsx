@@ -1,6 +1,7 @@
-import React,{useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { css } from "@emotion/react";
-
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Drawer,
   DrawerBody,
@@ -22,12 +23,21 @@ import { SlDiamond } from "react-icons/sl";
 import { BsBox, BsBoxArrowRight } from "react-icons/bs";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { authContext } from "../../context/AuthContextprovider";
 export function OnclickCart() {
+  const navigate = useNavigate();
+  const { auth, logOut } = useContext(authContext);
+  console.log(auth)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
   const [borderColor, setBorderColor] = useState("#888");
   const [animationInterval, setAnimationInterval] = useState(null);
+
+  const handleLogout = () => {
+    logOut();
+    navigate("/");
+  };
 
   useEffect(() => {
     if (!isOpen && animationInterval) {
@@ -111,7 +121,21 @@ export function OnclickCart() {
               RazerStore Rewars
             </Button>
             <Divider orientation="horizontal" />
-           
+
+            {auth ? (
+              <Button
+                _hover={{ color: "rgb(69,214,43)" }}
+                color="white"
+                leftIcon={<BsBoxArrowRight boxSize={6} />}
+                variant="liqued"
+                onClick={() => {
+                  handleLogout();
+                  onClose();
+                }}
+              >
+                Log out
+              </Button>
+            ) : (
               <Button
                 _hover={{ color: "rgb(69,214,43)" }}
                 color="white"
@@ -121,14 +145,10 @@ export function OnclickCart() {
               >
                 <Link to={"/signin"}>Log in</Link>
               </Button>
+            )}
           </DrawerBody>
 
-          <DrawerFooter>
-            {/* <Button variant='outline' mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button> */}
-          </DrawerFooter>
+          <DrawerFooter></DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

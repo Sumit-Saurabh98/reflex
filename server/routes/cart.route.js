@@ -46,7 +46,7 @@ router.get("/get/:userId", async (req, res) => {
         const userId = req.params.userId; // Get the user ID from the URL parameter
 
         // Find all cart items associated with the user
-        const userCart = await Cart.find({ user: userId }).populate("user").exec();
+        const userCart = await Cart.find({ user: userId }).exec();
 
         res.status(200).json(userCart);
     } catch (error) {

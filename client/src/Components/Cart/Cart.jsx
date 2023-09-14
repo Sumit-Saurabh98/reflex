@@ -22,61 +22,58 @@ import {
   CartBlueLinkText,
 } from "./CartTextDecoration";
 import { useRef, useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { CartProductCard } from "./CartProductCard";
 import { Link } from "react-router-dom";
-export function Cart() {
-  const [cartTotalState, setCartTotalState] = useState(0);
-  const toast = useToast();
-  const promo = useRef({ current: "" });
-  let cartTotal = useRef(0);
-  const cartItems = useSelector((state) => {
-    return state.cartReducer.cart;
-  });
-  useEffect(() => {
-    cartTotal.current = 0;
-    if (cartItems.length > 0) {
-      cartItems.map((item) => {
-        cartTotal.current = +item.cprice * item.quantity + +cartTotal.current;
-      });
-    }
-    setCartTotalState(cartTotal.current);
-  }, [cartItems]);
+import CartProductCard from "./CartProductCard"
+import jwt_decode from "jwt-decode"
+import axios from "axios";
 
-  const applyPromocode = () => {
-    if (promo.current == "welcome50") {
-      setCartTotalState((cartTotalState / 2).toFixed(2));
-      return toast({
-        title: "Please write the correct promocode",
-        status: "success",
-        duration: 2000,
-        isClosable: true,
+export function Cart() {
+    const promo = useRef(""); // Initialize promo code as an empty string
+  const [userId, setUserId] = useState("");
+  const [token, setToken] = useState("");
+  const [cartItems, setCartItems] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0); // State to store the total cart value
+  const toast = useToast();
+
+  const getCartData = async (user) => {
+    try {
+      const { data } = await axios.get(`http://localhost:8080/cart/get/${user}`, {
+        headers: {
+          "Authorization": "Bearer " + token
+        }
       });
-    } else {
-      setCartTotalState(cartTotal.current);
-      return toast({
-        title: "Please write the correct promocode",
-        status: "error",
-        duration: 2000,
-        isClosable: true,
-      });
+      setCartItems(data)
+      console.log(data, "ham yaga se hain")
+    } catch (error) {
+      // Handle the error, e.g., show an error message to the user
+      console.error("Error fetching cart data:", error);
+      return null; // Return a default value or handle the error as needed
     }
-  };
-  const saveTotalAmount = () => {
-    localStorage.setItem("total", cartTotalState);
-    localStorage.setItem("iteems", cartItems.length);
-  };
+  }
+
+useEffect(() => {
+    const token = localStorage.getItem("token");
+    setToken(token);
+    const uId = jwt_decode(token);
+    setUserId(uId.userID);
+    getCartData(uId.userID);
+  }, [userId, token]);
+
+
+  const applyPromocode = ()=>{
+    
+  }
 
   return (
     <Box bg="black" color="white" pt="100px">
       <Box bg="#1c1c1b">
         <Flex justify="space-between" w="80%" margin="auto" p="25px 0px">
-          <CartWhiteHeading t={`Your cart total is US$${cartTotalState}`} />
+          <CartWhiteHeading t={`Your cart total is US$${cartTotal}`} />
           <Link to="/payment">
             <CartGreenButton
               t={"Checkout"}
               w={"120px"}
-              onClick={saveTotalAmount}
+              // onClick={saveTotalAmount}
             />
           </Link>
         </Flex>
@@ -104,7 +101,7 @@ export function Cart() {
             </Box>
             <Box>
               <CartWhiteSmallText
-                t={`${Math.ceil(cartTotal.current / 20)} with this purchase.`}
+                // t={`${Math.ceil(cartTotal.current / 20)} with this purchase.`}
               />
             </Box>
           </Flex>
@@ -154,7 +151,7 @@ export function Cart() {
                 <CartGrayText t={"Excludes local taxes"} />
               </Box>
               <Box>
-                <CartBigWhiteText t={`US$${cartTotalState}`} />
+                {/* <CartBigWhiteText t={`US$${cartTotalState}`} /> */}
               </Box>
             </Flex>
             <Flex justify="space-between" p="20px 0px">
@@ -174,7 +171,7 @@ export function Cart() {
                 <CartBigWhiteText t={"Your Total"} />
               </Box>
               <Box>
-                <CartBigWhiteText t={`US$${cartTotalState}`} />
+                {/* <CartBigWhiteText t={`US$${cartTotalState}`} /> */}
               </Box>
             </Flex>
             <Flex justify="right">
@@ -183,7 +180,7 @@ export function Cart() {
                   <CartGreenButton
                     t={"Checkout"}
                     w={"120px"}
-                    onClick={saveTotalAmount}
+                    // onClick={saveTotalAmount}
                   />
                 </Link>
               </Box>

@@ -1,22 +1,26 @@
-require("dotenv").config()
-var jwt = require('jsonwebtoken');
+require("dotenv").config();
+const jwt = require('jsonwebtoken');
 
+const authenticate = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1];
 
-const authenticate = (req, res, next) => {
-    const token = req.headers.authorization?.split(" ")[1]
-    if(!token){
-        return res.send("please login")
+    if (!token) {
+      return res.status(401).send("Please login");
     }
-    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
-        const {userID} = decoded
-        req.userID = userID
-        if(decoded){
-            next()
-        }
-        else{
-            res.send("Please login")
-        }
-      });   
-}
 
-module.exports = {authenticate}
+    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+
+    if (decoded) {
+      req.userID = decoded.userID;
+      next();
+    } else {
+      res.status(401).send("Please login");
+    }
+  } catch (error) {
+    console.error("Error verifying JWT:", error);
+    res.status(500).send("Internal server error");
+  }
+};
+
+module.exports = { authenticate };

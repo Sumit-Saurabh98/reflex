@@ -1,9 +1,12 @@
 import React from "react";
 import { Heading, Container, Image, Text, Box } from "@chakra-ui/react";
 import tictak from "..//../Images/PaymentPage/Tictak.png";
+import { useContext } from "react";
+import { authContext } from "../../context/AuthContextprovider";
 
 function SucessPage(props) {
-  const total = localStorage.getItem("total");
+
+  const {price} = useContext(authContext)
   return (
     <div
       style={{
@@ -19,9 +22,6 @@ function SucessPage(props) {
         </Box>
         <Box color={"white"} align={"center"} bg="#101010">
           <Box pt="25px">
-            {/* <Box  w={"70px"}>
-                 <Image py={"20px"} w={"100%"} src={tictak}></Image>
-                 </Box> */}
             <Heading as="h4" size="md" pt="10px">
               Payment Sucessful
             </Heading>
@@ -39,7 +39,7 @@ function SucessPage(props) {
               Payment Amount
             </Text>
             <Text mt={"-20px"} ml={"20px"} textAlign={"start"}>
-              US${total}
+              US${price}
             </Text>
             <Text ml={"20px"} textAlign={"start"} color="#808080" pb="20px">
               Payment Method

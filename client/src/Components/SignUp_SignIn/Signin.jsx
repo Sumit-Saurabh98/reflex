@@ -22,7 +22,11 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { SiAccenture } from "react-icons/si";
 import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import { authContext } from "../../context/AuthContextprovider";
 function Signin(props) {
+
+  const {toggleAuth} = useContext(authContext)
   //eye button
   const [show, setShow] = React.useState(false);
   const [email, setEmail] = useState("");
@@ -40,6 +44,7 @@ function Signin(props) {
         const user = response.data; 
         localStorage.setItem("token", user.token);
         if (user) {
+          toggleAuth()
           toast({
           title: 'Login Successful',
           status: 'success',

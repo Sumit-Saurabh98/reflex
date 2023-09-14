@@ -1,27 +1,49 @@
-import React from 'react';
- import { createContext, useState } from 'react';
- import jwt_decode from "jwt-decode"
- import axios from 'axios';
-
- export const filterContext = createContext()
-
-function FilterContext({children}) {
-    const [auth, setAuth] = useState(false)
+import React, { createContext, useState, useEffect } from 'react';
 
 
-    const token = localStorage.getItem("token");
 
-    if(token){
-        setAuth(!auth)
+export const authContext = createContext();
+
+function AuthContextProvider({ children }) {
+    const [auth, setAuth] = useState(false);
+    const [price, setPrice] = useState(0);
+    const [item, setItem] = useState(1)
+
+    const changePrice = (p) => {
+        setPrice(p)
     }
 
+    const changeTotalItem = (i) => {
+        setItem(i)
+    }
 
-    const value = {auth}
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            setAuth(true);
+        }
+    }, []); 
+
+    const logOut = () => {
+        localStorage.clear();
+        setAuth(false);
+    }
+
+    const toggleAuth = () => {
+        setAuth(true)
+    }
+
+    console.log(auth, "from authfile")
+
+    
+
+    const value = { auth, logOut, toggleAuth, price, changePrice, item, changeTotalItem };
+    
     return (
-        <filterContext.Provider value={value}>
+        <authContext.Provider value={value}>
             {children}
-        </filterContext.Provider>
+        </authContext.Provider>
     );
 }
 
-export default FilterContext;
+export default AuthContextProvider;

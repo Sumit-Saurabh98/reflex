@@ -6,42 +6,68 @@ import {
   ListItem,
   UnorderedList,
   IconButton,
-  Divider,
-  Input,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useToast,
-  Button,
 } from "@chakra-ui/react";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { CartGreenButton } from "./CartGreenButton";
-import { useDispatch } from "react-redux";
+import { AddIcon, MinusIcon, DeleteIcon } from "@chakra-ui/icons";
+import axios from "axios";
 import {
   CartBigWhiteText,
-  CartWhiteHeading,
   CartGrayText,
-  CartGreenLinkText,
-  CartWhiteSmallText,
-  CartBlueLinkText,
 } from "./CartTextDecoration";
-import { useSelector } from "react-redux";
-export function CartProductCard({ item }) {
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => {
-    return state.cartReducer.cart;
-  });
+import { useEffect, useState } from "react";
+function CartProductCard({ item }) {
 
-  const handleQuantity = (payload) => {
-    const updatedCart = cartItems.map((product) => {
-      return product.id == item.id
-        ? { ...product, quantity: +product.quantity + payload }
-        : product;
-    });
-    dispatch({ type: "cart", payload: updatedCart });
+   const [token, setToken] = useState(""); // State to store the token
+
+  // Function to fetch the token from localStorage and set it in the state
+  const fetchToken = () => {
+    const t = localStorage.getItem("token");
+    setToken(t);
   };
+
+  useEffect(() => {
+    fetchToken(); // Fetch the token when the component mounts
+  }, []);
+
+
+const handleQuantity = async (newQuantity) => {
+  try {
+    // Ensure that the new quantity is within the range [1, 5]
+    newQuantity = Math.min(Math.max(newQuantity, 1), 5);
+
+    // Make a PUT request to update the quantity for this item
+    const response = await axios.put(
+      `http://localhost:8080/cart/update/${item._id}`,
+      { quantity: newQuantity }, // Move the quantity to the data object
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    console.error("Error updating quantity:", error);
+  }
+};
+
+
+  const handleDelete = async () => {
+    try {
+      // Make a DELETE request to remove this item from the cart
+      const response = await axios.delete(`http://localhost:8080/cart/remove/${item._id}`, {
+      headers:{
+        "Authorization": "Bearer " + token
+      }
+      });
+
+      // If the item is successfully deleted, call the removeFromCart function to remove it from the UI
+      // if (response.status === 200) {
+      //   removeFromCart(item._id);
+      // }
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
+
   return (
     <Flex justify="space-between" p="20px 0px">
       <Flex width="60%">
@@ -52,13 +78,13 @@ export function CartProductCard({ item }) {
           <CartBigWhiteText t={item.title} />
           <UnorderedList>
             <ListItem>
-              <CartGrayText t={item.specifications.force} />
+              <CartGrayText t={item.force} />
             </ListItem>
             <ListItem>
-              <CartGrayText t={item.specifications.processor} />
+              <CartGrayText t={item.processor} />
             </ListItem>
             <ListItem>
-              <CartGrayText t={item.specifications.storage} />
+              <CartGrayText t={item.storage} />
             </ListItem>
           </UnorderedList>
         </Box>
@@ -67,29 +93,38 @@ export function CartProductCard({ item }) {
         <Flex>
           <Box>
             <IconButton
-              variant="outline"
-              colorScheme="black"
-              icon={<AddIcon />}
-              size="xs"
-              onClick={() => {
-                handleQuantity(1);
-              }}
-              isDisabled={item.quantity >= 5}
-            />
+      variant="outline"
+      colorScheme="black"
+      icon={<AddIcon />}
+      size="xs"
+      onClick={() => {
+        handleQuantity(item.quantity + 1);
+      }}
+      isDisabled={item.quantity >= 5}
+    />
           </Box>
           <Box w="40px" align="center">
             <Text>{item.quantity}</Text>
           </Box>
           <Box>
+           <IconButton
+      variant="outline"
+      colorScheme="black"
+      icon={<MinusIcon />}
+      size="xs"
+      onClick={() => {
+        handleQuantity(item.quantity - 1);
+      }}
+      isDisabled={item.quantity <= 1}
+    />
+          </Box>
+          <Box ml={"20px"}>
             <IconButton
               variant="outline"
               colorScheme="black"
-              icon={<MinusIcon />}
+              icon={<DeleteIcon />}
               size="xs"
-              onClick={() => {
-                handleQuantity(-1);
-              }}
-              isDisabled={item.quantity <= 1}
+              onClick={handleDelete}
             />
           </Box>
         </Flex>
@@ -100,3 +135,5 @@ export function CartProductCard({ item }) {
     </Flex>
   );
 }
+
+export default CartProductCard;

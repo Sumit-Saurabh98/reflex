@@ -16,12 +16,13 @@ import Filter from "./Filter";
 import { Link } from "react-router-dom";
 import axios from "axios"
 import { filterContext } from "../../context/FilterContext";
-import jwt_decode from "jwt-decode";
-
+import jwt_decode from "jwt-decode"
 function Pc() {
   const {screen, sort, color}  = useContext(filterContext);
   const toast = useToast();
   const [products, setProducts] = useState([]);
+ const [decodedToken, setDecodedToken] = useState({}); 
+  const [token, setToken] = useState("")
 
   const getProducts = async() =>{
     const {data} = await axios.get(`http://localhost:8080/api/products?sort=${sort}&screen=${screen}&color=${color}`);
@@ -31,9 +32,17 @@ function Pc() {
     getProducts();
   }, [screen, sort, color]);
 
-  const token = localStorage.getItem("token");
+  useEffect(() => {
+  const t = localStorage.getItem("token");
 
-  const decodedToken = jwt_decode(token);
+  if (t) {
+    setToken(t);
+    const detoken = jwt_decode(t)
+  setDecodedToken(detoken)
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  }
+}, []); 
+
 
 
  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -86,7 +95,7 @@ function Pc() {
     // Handle the error and display an error toast message
     toast({
       title: "Error",
-      description: "Failed to add product to cart",
+      description: "Failed to add product to cart, login first",
       status: "error",
       duration: 9000,
       isClosable: true,

@@ -9,9 +9,11 @@ import "@fontsource/titillium-web/400.css";
 import Theme from "./Components/Theme/Theme";
 import { Provider } from "react-redux";
 import FilterContext from "./context/FilterContext";
+import AuthContextProvider from "./context/AuthContextprovider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <AuthContextProvider>
   <FilterContext>
   <Provider store={store}>
     <BrowserRouter>
@@ -21,6 +23,7 @@ root.render(
     </BrowserRouter>
   </Provider>
   </FilterContext>
+  </AuthContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

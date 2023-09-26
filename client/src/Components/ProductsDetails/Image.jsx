@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Box, Image } from "@chakra-ui/react";
 import { useParams } from "react-router";
 import axios from "axios";
-import Carousel from "react-bootstrap/Carousel";
 
 const slideStyles = {
   width: "100%",

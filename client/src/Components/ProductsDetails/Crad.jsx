@@ -44,7 +44,7 @@ function CardComp() {
     dispatch(addToCart(data));
   };
 
-  if (data != "") {
+  if (data !== "") {
     return (
       <Box
         mt="56px"

@@ -26,7 +26,7 @@ function Details() {
     getData();
   }, []);
   const handleToggle = () => setShow(!show);
-  if (data != "") {
+  if (data !== "") {
     return (
       <Box bg="#252525">
         <Box px="70px" pt="40px" mt="40px" align="left">

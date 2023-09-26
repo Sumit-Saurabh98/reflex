@@ -5,7 +5,6 @@ const userRouter = require("./routes/user.route")
 const productsRouter = require("./routes/product.route")
 const cors = require("cors")
 const cartRouter = require('./routes/cart.route');
-const path = require('path');
 const { authenticate } = require("./middlewares/authenticate");
 
 const PORT = process.env.PORT || 5000;
@@ -20,16 +19,6 @@ app.use("/user", userRouter);
 app.use("/api", productsRouter)
 app.use("/cart", authenticate , cartRouter)
 
-
-app.use(express.static(path.join(__dirname, "./client/build")));
-app.get("*", function (_, res) {
-  res.sendFile(
-    path.join(__dirname, "./client/build/index.html"),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
-});
 
 app.listen(PORT, async () => {
     try {

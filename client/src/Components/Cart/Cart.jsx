@@ -52,7 +52,7 @@ export function Cart() {
 
   const getCartData = async (user) => {
     try {
-      const { data } = await axios.get(`/cart/get/${user}`, {
+      const { data } = await axios.get(`http://localhost:8080/cart/get/${user}`, {
         headers: {
           Authorization: "Bearer " + token,
         },

@@ -47,7 +47,7 @@ function ImageComp() {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`/api/products/${id}`);
+      const response = await axios.get(`http://localhost:8080/api/products/${id}`);
       const productData = response.data.data;
 
       if (productData && productData.img) {

@@ -101,7 +101,7 @@ function Signup(props) {
     e.preventDefault();
     let userDataObj = { name, country, date, email, password };
     if (isValidated()) {
-      axios.post("/user/signup", userDataObj)
+      axios.post("http://localhost:8080/user/signup", userDataObj)
         .then((res) => {
           toast({
           title: "Sign up successfully",

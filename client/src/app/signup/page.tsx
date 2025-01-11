@@ -3,29 +3,29 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Chrome, LogIn } from 'lucide-react';
 import Link from 'next/link';
+import { useUserStore } from '@/store/useUserStore';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
+   const {signup, signupLoading} = useUserStore();
+
   const [formData, setFormData] = useState({
-    fullname: '',
-    email: '',
-    password: '',
-    country: ''
+    fullname: "",
+    email: "",
+    password: "",
+    country: "",
   });
 
   const handleSubmit = () => {
-    setLoading(true);
-    // Add your signup logic here
-    setTimeout(() => {
-      setLoading(false);
-      setFormData({
-        fullname: '',
-        email: '',
-        password: '',
-        country: ''
-      });
-    }, 2000);
+    console.log(formData);
+    signup(formData.fullname, formData.email, formData.password, formData.country);
+
+    setFormData({
+      fullname: "",
+      email: "",
+      password: "",
+      country: "",
+    })
   };
 
   return (
@@ -140,10 +140,10 @@ const SignUp = () => {
             {/* Submit Button */}
             <button
               onClick={handleSubmit}
-              disabled={!formData.fullname || !formData.email || !formData.country || !formData.password || loading}
+              disabled={!formData.fullname || !formData.email || !formData.country || !formData.password || signupLoading}
               className="w-full bg-[#45d62b] hover:bg-[#3bb924] text-black py-2 px-4 rounded font-medium disabled:opacity-50 disabled:cursor-not-allowed mt-4"
             >
-              {loading ? (
+              {signupLoading ? (
                 <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin mx-auto"></div>
               ) : (
                 'ACCEPT AND CREATE'

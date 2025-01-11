@@ -1,5 +1,10 @@
+"use client"
 import HomePageBanner from "@/components/home/HomePageBanner"
 import HomePageCard from "@/components/home/HomePageCard"
+import LoadingSpinner from "@/components/loading/LoadingSpinner"
+import { useUserStore } from "@/store/useUserStore"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 
 interface BannerInfo {
   heading1: string
@@ -10,6 +15,25 @@ interface BannerInfo {
 }
 
 export default function Home() {
+
+  const router = useRouter();
+
+  const {user, checkAuth, checkAuthLoading} = useUserStore();
+
+  const handleNavigation = (to?: string) => {
+    if (to) {
+      router.push(to)
+    }
+  }
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
+  if (checkAuthLoading) {
+    return <LoadingSpinner />;
+  }
+
   const homePageBannersData: BannerInfo[] = [
     {
       heading1: "NEW RAZER BLADE 16",

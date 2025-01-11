@@ -2,7 +2,7 @@ import { create } from "zustand";
 import reflex from "@/lib/reflex";
 import { toast } from "react-hot-toast";
 
-interface IProduct {
+export interface IProduct {
   _id: string;
   images: string[];
   title: string;
@@ -23,7 +23,7 @@ interface IProduct {
 
 interface ProductStore {
   products: IProduct[];
-  product: IProduct | null;
+  product: IProduct;
   loadingProduct: boolean;
   getProducts: () => Promise<void>;
   getSingleProduct: (id: string) => Promise<void>;
@@ -31,7 +31,22 @@ interface ProductStore {
 
 export const useProductStore = create<ProductStore>((set) => ({
   products: [],
-  product: null,
+  product: {
+    _id: "",
+    images: [],
+    title: "",
+    specifications: {
+      processor: "",
+      windows: "",
+      screen: 0,
+      force: "",
+      storage: "",
+    },
+    discountedPrice: 0,
+    mrp: 0,
+    color: "",
+    quantity: 0,
+  },
   loadingProduct: false,
 
   getProducts: async () => {

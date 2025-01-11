@@ -1,17 +1,25 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import GridFooterLayout from "./GridFooterLayout";
 import AccordionFooter from "./AccordionFooter";
 
 function Footer() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    function handleResize() {
+    if (typeof window !== "undefined") {
       setWindowWidth(window.innerWidth);
+
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      }
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     }
-    window.addEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -19,4 +27,4 @@ function Footer() {
   );
 }
 
-export default Footer
+export default Footer;

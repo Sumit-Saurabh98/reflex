@@ -1,29 +1,27 @@
 "use client";
-import React, { useState } from 'react';
-import { Eye, EyeOff, Chrome, MoveRight } from 'lucide-react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import { Eye, EyeOff, Chrome, MoveRight } from "lucide-react";
+import Link from "next/link";
+import { useUserStore } from "@/store/useUserStore";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { login, signinLoading } = useUserStore();
 
   const handleSubmit = () => {
-    setLoading(true);
-    // Add your login logic here
-    setTimeout(() => {
-      setLoading(false);
-      setEmail('');
-      setPassword('');
-    }, 2000);
+    login(email, password);
+    setEmail("");
+    setPassword("");
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen py-8 bg-cover bg-center"
       style={{
-        backgroundImage: `url('https://razerid-assets.razerzone.com/static/media/serpents-eye-v2-20220906.dae1e41f.jpg')`
+        backgroundImage: `url('https://razerid-assets.razerzone.com/static/media/serpents-eye-v2-20220906.dae1e41f.jpg')`,
       }}
     >
       <div className="max-w-md mx-auto px-4">
@@ -39,9 +37,7 @@ const SignIn = () => {
           </div>
 
           {/* Google Login Button */}
-          <button 
-            className="w-full bg-white hover:bg-gray-100 text-black py-2 px-4 rounded flex items-center justify-center mb-6"
-          >
+          <button className="w-full bg-white hover:bg-gray-100 text-black py-2 px-4 rounded flex items-center justify-center mb-6">
             <Chrome className="w-5 h-5 mr-2" />
             Continue with Google
           </button>
@@ -70,7 +66,7 @@ const SignIn = () => {
               <label className="block text-white mb-2">Password</label>
               <div className="relative">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-black text-white border border-[#45d62b] rounded px-3 py-2 focus:outline-none focus:border-[#45d62b] focus:ring-1 focus:ring-[#45d62b]"
@@ -81,7 +77,11 @@ const SignIn = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
                 >
-                  {showPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                  {showPassword ? (
+                    <Eye className="w-4 h-4" />
+                  ) : (
+                    <EyeOff className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
@@ -89,25 +89,26 @@ const SignIn = () => {
             {/* Login Button */}
             <button
               onClick={handleSubmit}
-              disabled={!email || !password || loading}
+              disabled={!email || !password || signinLoading}
               className="w-full bg-[#45d62b] hover:bg-[#3bb924] text-black py-2 px-4 rounded font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? (
+              {signinLoading ? (
                 <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin mx-auto"></div>
               ) : (
-                'Reflex Login'
+                "Reflex Login"
               )}
             </button>
 
             {/* Sign Up Link */}
             <div className="text-center pt-4">
               <p className="text-white mb-2">Don&apos;t have an Account?</p>
-              <Link href={"/signup"} className='text-[#45d62b]'>
-              <button 
-                className="text-white hover:text-[#45d62b] transition-colors"
-              >
-                <span className='flex gap-1'> <p>Create account</p> <MoveRight/></span> 
-              </button>
+              <Link href={"/signup"} className="text-[#45d62b]">
+                <button className="text-white hover:text-[#45d62b] transition-colors">
+                  <span className="flex gap-1">
+                    {" "}
+                    <p>Create account</p> <MoveRight />
+                  </span>
+                </button>
               </Link>
             </div>
           </div>

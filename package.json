@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@types/webidl-conversions": "^7.0.3"
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { IProduct } from '@/store/useProductStore';
-import useCountdown from '@/hooks/UseCountdown';
+import useCountdown from '@/hooks/useCountdown';
 
 const ProductDetailsNav = ({product}: {product: IProduct}) => {
 

@@ -12,9 +12,24 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { IProduct } from "@/store/useProductStore";
 import dateRange from "@/lib/date";
+import { useCartStore } from "@/store/useCartStore";
+import { useUserStore } from "@/store/useUserStore";
+import toast from "react-hot-toast";
 
 const ProductDetailsCard = ({ product }:{ product: IProduct}) => {
   const [isStoreModalOpen, setIsStoreModalOpen] = useState(false);
+
+  const {addToCart} = useCartStore();
+
+    const {user} = useUserStore();
+	const handleAddToCart = () => {
+		if(!user){
+            toast.error("Please login to add product to cart", {id: "error"});
+            return;
+        }else{
+            addToCart(product);
+        }
+	};
 
   return (
     <div className="bg-black w-full md:w-full">
@@ -147,6 +162,7 @@ const ProductDetailsCard = ({ product }:{ product: IProduct}) => {
 
         <Button
           className="w-[40%] bg-[#44B10B] hover:bg-[#2e7806]"
+          onClick={handleAddToCart}
         >
           ADD TO CART
         </Button>

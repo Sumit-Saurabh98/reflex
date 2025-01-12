@@ -11,8 +11,6 @@ const Laptops = () => {
 
     const {getProducts, products, loadingProduct} = useProductStore();
 
-    console.log(products);
-
     useEffect(() => {
       getProducts();
     }, []);

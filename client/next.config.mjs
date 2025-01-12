@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: 'assets3.razerzone.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.razer.com',
+        pathname: '/**',
+      },
     ],
   },
 };

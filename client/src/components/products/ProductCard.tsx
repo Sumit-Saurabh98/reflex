@@ -5,9 +5,26 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useCartStore } from "@/store/useCartStore";
+import { useUserStore } from "@/store/useUserStore";
+import toast from "react-hot-toast";
 
-const ProductCard = ({ product }: { product: IProduct }) => (
-  <Card className="bg-[#252525] text-white">
+const ProductCard = ({ product}: { product: IProduct }) => {
+
+  const {addToCart} = useCartStore();
+
+    const {user} = useUserStore();
+	const handleAddToCart = () => {
+		if(!user){
+            toast.error("Please login to add product to cart", {id: "error"});
+            return;
+        }else{
+            addToCart(product);
+        }
+	};
+
+  return (
+    <Card className="bg-[#252525] text-white">
     <CardContent className="p-0">
       <img 
         src={product.images[Math.floor(Math.random() * 5)]} 
@@ -40,12 +57,14 @@ const ProductCard = ({ product }: { product: IProduct }) => (
 
         <Button 
           className="bg-[#44d62c] hover:bg-[#44d62c]/90 mt-5 w-[45%]"
+          onClick={handleAddToCart}
         >
           Add To Cart
         </Button>
       </div>
     </CardContent>
   </Card>
-);
+  )
+}
 
 export default ProductCard;
